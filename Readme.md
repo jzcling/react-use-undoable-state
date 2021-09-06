@@ -17,9 +17,9 @@ lodash
 
 ## Concept
 
-As with useState, useUndoableState accepts only 1 argument, the initial value. Behind the scenes, the hook uses two main variables to determine state - `index` (number) and `states` (array). `states` store the historical values of the state while `index` determines current state by indicating the current position in the array.
+As with useState, useUndoableState accepts only 1 argument, the initial value. Behind the scenes, the hook uses two main variables to determine state - `index` (number) and `states` (array). `states` stores the historical values of the state while `index` determines current state by indicating the current position in the array.
 
-You may navigate through historical states by using the `goBack` and `goForward` functions emitted by the hook. However, if you make a call to `setState` and `index` is not at the end of the `states` array, all states after `index` is erased and `index` will go back the the end of the `states` array.
+You may navigate through historical states by using the `goBack` and `goForward` functions emitted by the hook. However, if you make a call to `setState` and `index` is not at the end of the `states` array, all states after `index` is erased and `index` will go back to the end of the `states` array.
 
 The following table attempts to provide a more detailed explanation of the object returned by the hook:
 
@@ -34,6 +34,7 @@ The following table attempts to provide a more detailed explanation of the objec
 
 ```js
 import React from "react";
+import useUndoableState from "@jeremyling/react-use-undoable-state";
 
 export default function Document() {
   const {
