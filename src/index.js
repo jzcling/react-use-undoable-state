@@ -36,6 +36,7 @@ export default function useUndoableState(init) {
     setState: setState,
     resetState: resetState,
     index: index,
+    lastIndex: states.length - 1,
     goBack: goBack,
     goForward: goForward,
   };
