@@ -24,11 +24,11 @@ export default function useUndoableState(init) {
   };
 
   const goBack = (steps = 1) => {
-    setIndex(Math.max(0, index - steps));
+    setIndex(Math.max(0, Number(index) - (Number(steps) || 1)));
   };
 
   const goForward = (steps = 1) => {
-    setIndex(Math.min(states.length - 1, index + steps));
+    setIndex(Math.min(states.length - 1, Number(index) + (Number(steps) || 1)));
   };
 
   return {
