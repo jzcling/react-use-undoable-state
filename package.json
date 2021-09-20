@@ -1,6 +1,6 @@
 {
   "name": "@jeremyling/react-use-undoable-state",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "build": "NODE_ENV=production rollup -c"
   },

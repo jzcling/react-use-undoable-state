@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { cloneDeep, isEqual } from "lodash-es";
+import _ from "lodash";
 
 export default function useUndoableState(init) {
   const [index, setIndex] = useState(0);
@@ -8,10 +8,10 @@ export default function useUndoableState(init) {
   const state = useMemo(() => states[index], [states, index]);
 
   const setState = (value) => {
-    if (isEqual(state, value)) {
+    if (_.isEqual(state, value)) {
       return;
     }
-    const copy = cloneDeep(states);
+    const copy = _.cloneDeep(states);
     copy.length = index + 1;
     copy.push(value);
     setStates(copy);
