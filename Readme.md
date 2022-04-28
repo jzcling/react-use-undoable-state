@@ -15,6 +15,10 @@ react
 lodash
 ```
 
+## Usage Example
+
+Here's a code sandbox for how this hook is used: https://codesandbox.io/s/use-undoable-state-2spts
+
 ## Concept
 
 As with useState, useUndoableState accepts only 1 argument, the initial value. Behind the scenes, the hook uses two main variables to determine state - `index` (number) and `states` (array). `states` stores the historical values of the state while `index` determines current state by indicating the current position in the array.

@@ -61,7 +61,7 @@ const config = {
     terser(),
     autoExternal(),
   ],
-  external: ["lodash", /@babel\/runtime/],
+  external: [/lodash\//, /@babel\/runtime/],
 };
 
 export default config;
