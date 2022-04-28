@@ -27,15 +27,15 @@ You may navigate through historical states by using the `goBack` and `goForward`
 
 The following table attempts to provide a more detailed explanation of the object returned by the hook:
 
-| Prop       | Type     | Usage             | Description                                                           |
-| ---------- | -------- | ----------------- | --------------------------------------------------------------------- |
-| state      | `any`    |                   | Current state, initialised with argument passed                       |
-| setState   | `func`   | setState(value)   | Sets state to value. All values after current `index` is erased       |
-| resetState | `func`   | resetState(value) | Deletes historical states and resets to value                         |
-| index      | `number` |                   | The current index in the `states` array                               |
-| lastIndex  | `number` |                   | The last index in the `states` array. To determine if can `goForward` |
-| goBack     | `func`   | goBack(2)         | Goes back the number of steps passed                                  |
-| goForward  | `func`   | goForward(3)      | Goes forward the number of steps passed                               |
+| Prop       | Type                      | Usage             | Description                                                           |
+| ---------- | ------------------------- | ----------------- | --------------------------------------------------------------------- |
+| state      | `T: any`                  |                   | Current state, initialised with argument passed                       |
+| setState   | `(value: T) => void`      | setState(value)   | Sets state to value. All values after current `index` is erased       |
+| resetState | `(init: T) => void`       | resetState(value) | Deletes historical states and resets to value                         |
+| index      | `number`                  |                   | The current index in the `states` array                               |
+| lastIndex  | `number`                  |                   | The last index in the `states` array. To determine if can `goForward` |
+| goBack     | `(steps: number) => void` | goBack(2)         | Goes back the number of steps passed                                  |
+| goForward  | `(steps: number) => void` | goForward(3)      | Goes forward the number of steps passed                               |
 
 ```js
 import React from "react";
@@ -51,5 +51,10 @@ export default function Document() {
     goBack: undoDoc,
     goForward: redoDoc,
   } = useUndoableState({ text: "The quick brown fox jumps over the lazy dog" });
+
+  const canUndo = docStateIndex > 0;
+  const canRedo = docStateIndex < docStateLastIndex;
+
+  return ...
 }
 ```

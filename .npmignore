@@ -6,6 +6,10 @@
 # testing
 /coverage
 
+# tsc build folder
+/build
+tsconfig.tsbuildinfo
+
 # development
 /src
 
